@@ -36,7 +36,7 @@ usage123 = (
 )
 
 
-def start(update: Update, _: CallbackContext) -> None:
+def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_markdown(
         "You can use this chat to see how LaTeX "
         + "is rendered or to copy-paste the output.\n\n"
@@ -44,7 +44,7 @@ def start(update: Update, _: CallbackContext) -> None:
     )
 
 
-def help_command(update: Update, _: CallbackContext) -> None:
+def help_command(update: Update, context: CallbackContext) -> None:
     update.message.reply_markdown(
         usage123
         + "\n\nFor more, please visit the [wiki page](https://github.com/"
@@ -52,7 +52,7 @@ def help_command(update: Update, _: CallbackContext) -> None:
     )
 
 
-def convert(update: Update, _: CallbackContext) -> None:
+def convert(update: Update, context: CallbackContext) -> None:
     answer = ypsu.convert(update.message.text)
     if not answer:
         return
