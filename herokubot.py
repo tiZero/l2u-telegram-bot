@@ -59,7 +59,7 @@ def convert(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(answer)
 
 
-def inlinequery(update: Update, _: CallbackContext) -> None:
+def inlinequery(update: Update, context: CallbackContext) -> None:
     result = ypsu.convert(update.inline_query.query)
     if not result:
         return
@@ -72,9 +72,7 @@ def inlinequery(update: Update, _: CallbackContext) -> None:
         )
     ]
 
-    update.inline_query.answer(
-        results, switch_pm_text="PM with the bot", switch_pm_parameter=""
-    )
+    update.inline_query.answer(results)
 
 
 if __name__ == "__main__":
