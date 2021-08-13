@@ -72,7 +72,9 @@ def inlinequery(update: Update, _: CallbackContext) -> None:
         )
     ]
 
-    update.inline_query.answer(results, switch_pm_text="PM with the bot")
+    update.inline_query.answer(
+        results, switch_pm_text="PM with the bot", switch_pm_parameter=""
+    )
 
 
 if __name__ == "__main__":
